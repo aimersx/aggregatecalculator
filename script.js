@@ -1,35 +1,35 @@
-// Listen for changes in the field choice dropdown
 document.getElementById('fieldChoice').addEventListener('change', function () {
     const fieldChoice = parseInt(this.value);
-
+    const engChoices = document.getElementById('engChoices');
+    const marksSection = document.getElementById('marksSection');
+    const comingSoonPopup = document.getElementById('comingSoonPopup');
+    
     // Hide all sections initially
-    document.getElementById('medChoices').style.display = 'none';
-    document.getElementById('engChoices').style.display = 'none';
-    document.getElementById('marksSection').style.display = 'none';
+    engChoices.style.display = 'none';
+    marksSection.style.display = 'none';
+    comingSoonPopup.style.display = 'none'; // Hide the popup
 
-    // Reset any previous selections
-    document.getElementById('medChoice').value = '';
+    // Reset previous selections
     document.getElementById('engChoice').value = '';
     document.getElementById('matricMarks').value = '';
     document.getElementById('interMarks').value = '';
     document.getElementById('testScore').value = '';
 
     if (fieldChoice === 1) { // Pre-Medical
-        // Show popup for "Coming Soon"
-        alert('Coming Soon for Pre-Medical!');
-        return; // Prevent further selection of test and university
+        // Show Coming Soon popup and stop further actions
+        comingSoonPopup.style.display = 'block';
+        return; // Prevent further actions
     }
 
     if (fieldChoice === 2) { // Pre-Engineering/ICS
         // Show the Engineering/ICS university choice
-        document.getElementById('engChoices').style.display = 'block';
+        engChoices.style.display = 'block';
     }
-
+    
     // Show the marks input section
-    document.getElementById('marksSection').style.display = 'block';
+    marksSection.style.display = 'block';
 });
 
-// Handle submission of the form (Calculate Aggregate)
 document.getElementById('calculateBtn').addEventListener('click', function () {
     const fieldChoice = parseInt(document.getElementById('fieldChoice').value);
     const matricMarks = parseFloat(document.getElementById('matricMarks').value);
@@ -37,12 +37,12 @@ document.getElementById('calculateBtn').addEventListener('click', function () {
     const testScore = parseFloat(document.getElementById('testScore').value);
     let aggregate = 0;
 
+    // Input validation
     if (isNaN(matricMarks) || isNaN(interMarks) || (isNaN(testScore) && fieldChoice !== 1)) {
         alert('Please fill in all the fields correctly!');
         return;
     }
 
-    // Logic to calculate aggregate based on the selections
     if (fieldChoice === 2) { // Pre-Engineering/ICS
         const engChoice = parseInt(document.getElementById('engChoice').value);
 
@@ -61,3 +61,7 @@ document.getElementById('calculateBtn').addEventListener('click', function () {
         }
     }
 });
+
+function closePopup() {
+    document.getElementById('comingSoonPopup').style.display = 'none';
+}
