@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aggregate Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Aggregate Calculator</h1>
+
+        <div class="input-container">
+            <label for="field">What are you pursuing?</label>
+            <select id="field" name="field">
+                <option value="0">Select Field</option>
+                <option value="1">Pre-Medical</option>
+                <option value="2">Pre-Engineering/ICS</option>
+            </select>
+        </div>
+
+        <div class="input-container" id="medChoiceContainer" style="display:none;">
+            <label for="medChoice">For which test you want to calculate aggregate?</label>
+            <select id="medChoice" name="medChoice">
+                <option value="1">MDCAT</option>
+                <option value="2">NUMS</option>
+                <option value="3">AKU</option>
+            </select>
+        </div>
+
+        <div class="input-container" id="engChoiceContainer" style="display:none;">
+            <label for="engChoice">For which university you want to calculate aggregate?</label>
+            <select id="engChoice" name="engChoice">
+                <option value="1">NUST</option>
+                <option value="2">FAST</option>
+                <option value="3">UET</option>
+                <option value="4">COMSATS</option>
+            </select>
+        </div>
+
+        <div class="input-container">
+            <label for="matricMarks">Enter Matric marks:</label>
+            <input type="number" id="matricMarks" name="matricMarks" min="0" max="1100">
+        </div>
+
+        <div class="input-container">
+            <label for="interMarks">Enter Inter marks:</label>
+            <input type="number" id="interMarks" name="interMarks" min="0" max="550">
+        </div>
+
+        <div class="input-container">
+            <label for="entryMarks">Enter Entry Test Marks:</label>
+            <input type="number" id="entryMarks" name="entryMarks">
+        </div>
+
+        <button id="calculateBtn">Calculate Aggregate</button>
+    </div>
+
+    <!-- Popup for displaying results -->
+    <div id="resultPopup" class="popup">
+        <div class="popup-content">
+            <h2>Your Aggregate: <span id="aggregateResult"></span>%</h2>
+            <button class="close-btn" id="closeBtn">X</button>
+        </div>
+    </div>
+
+    <!-- Hover Bar -->
+    <div class="hover-bar"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
