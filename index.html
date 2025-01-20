@@ -76,12 +76,13 @@
     <h1>University Aggregate Calculator</h1>
 
     <div class="container">
-        <!-- Field choice (Pre-Medical or Pre-Engineering/ICS) -->
+        <!-- Field choice (Pre-Medical, Pre-Engineering, or ICS) -->
         <label for="fieldChoice">What are you pursuing?</label>
         <select id="fieldChoice">
             <option value="0">Select an option</option>
             <option value="1">Pre-Medical</option>
-            <option value="2">Pre-Engineering/ICS</option>
+            <option value="2">Pre-Engineering</option>
+            <option value="3">ICS</option>
         </select>
 
         <!-- Pre-Engineering/ICS University choices -->
@@ -104,8 +105,8 @@
             <label for="interMarks">Enter Inter Marks:</label>
             <input type="number" id="interMarks" placeholder="Inter Marks" />
 
-            <label for="testScore">Enter Entry Test Marks:</label>
-            <input type="number" id="testScore" placeholder="Test Marks" />
+            <label for="testScore" id="testLabel">Enter Entry Test Marks:</label>
+            <input type="number" id="testScore" placeholder="Entry Test Marks" />
         </div>
 
         <!-- Calculate Button -->
@@ -114,7 +115,7 @@
 
     <!-- Coming Soon Popup -->
     <div class="popup" id="comingSoonPopup">
-        <p>Coming Soon for Pre-Medical!</p>
+        <p>Coming Soon</p>
         <button onclick="closePopup()">Close</button>
     </div>
 
