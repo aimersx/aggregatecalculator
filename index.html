@@ -3,41 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aggregate Calculator</title>
-    <link rel="stylesheet" href="style.css">
+    <title>University Aggregate Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #1e1e1e;
+            font-family: 'Roboto', sans-serif;
+            color: white;
+            padding: 40px 20px;
+        }
+        h1 {
+            text-align: center;
+            animation: fadeIn 3s ease-in-out infinite;
+            margin-bottom: 30px;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #2a2a2a;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        select, input {
+            background-color: #333;
+            color: #fff;
+            border: 1px solid #444;
+            border-radius: 5px;
+            padding: 10px;
+            width: 100%;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #engChoices, #marksSection {
+            display: none;
+        }
+        .popup {
+            display: none;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+    </style>
 </head>
 <body>
+
+    <h1>University Aggregate Calculator</h1>
+
     <div class="container">
-        <h1 id="title">University Aggregate Calculator</h1>
-        <div class="form-group">
-            <label for="fieldChoice">Select Your Field:</label>
-            <select id="fieldChoice">
-                <option value="">-- Select Field --</option>
-                <option value="1">Pre-Medical</option>
-                <option value="2">Pre-Engineering/ICS</option>
-            </select>
-        </div>
-        <div id="engChoices" class="form-group" style="display: none;">
-            <label for="engChoice">Select University:</label>
+        <!-- Field choice (Pre-Medical or Pre-Engineering/ICS) -->
+        <label for="fieldChoice">What are you pursuing?</label>
+        <select id="fieldChoice">
+            <option value="0">Select an option</option>
+            <option value="1">Pre-Medical</option>
+            <option value="2">Pre-Engineering/ICS</option>
+        </select>
+
+        <!-- Pre-Engineering/ICS University choices -->
+        <div id="engChoices">
+            <label for="engChoice">For which university do you want to calculate aggregate?</label>
             <select id="engChoice">
-                <option value="">-- Select University --</option>
+                <option value="0">Select University</option>
                 <option value="1">NUST</option>
                 <option value="2">FAST</option>
                 <option value="3">UET</option>
                 <option value="4">COMSATS</option>
             </select>
         </div>
-        <div id="marksSection" class="form-group" style="display: none;">
+
+        <!-- Marks Input Section -->
+        <div id="marksSection">
             <label for="matricMarks">Enter Matric Marks:</label>
-            <input type="number" id="matricMarks" placeholder="Out of 1100">
+            <input type="number" id="matricMarks" placeholder="Matric Marks" />
+
             <label for="interMarks">Enter Inter Marks:</label>
-            <input type="number" id="interMarks" placeholder="Out of 550">
-            <label id="testLabel" for="testScore">Enter Entry Test Marks:</label>
-            <input type="number" id="testScore" placeholder="Entry Test Marks">
-            <button id="calculateBtn">Calculate Aggregate</button>
+            <input type="number" id="interMarks" placeholder="Inter Marks" />
+
+            <label for="testScore">Enter Entry Test Marks:</label>
+            <input type="number" id="testScore" placeholder="Test Marks" />
         </div>
-        <div id="resultSection" class="form-group"></div>
+
+        <!-- Calculate Button -->
+        <button id="calculateBtn">Calculate Aggregate</button>
     </div>
+
+    <!-- Coming Soon Popup -->
+    <div class="popup" id="comingSoonPopup">
+        <p>Coming Soon for Pre-Medical!</p>
+        <button onclick="closePopup()">Close</button>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
