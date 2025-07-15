@@ -50,7 +50,7 @@ document.getElementById('calculateBtn').addEventListener('click', function () {
             aggregate = (matricMarks / 1100) * 10 + (interMarks / 550) * 15 + (testScore / 200) * 75;
             alert(`Your aggregate for NUST is: ${aggregate.toFixed(2)}%`);
         } else if (engChoice === 2) {
-            aggregate = (matricMarks / 1100) * 10 + (interMarks / 550) * 40 + (testScore / 200) * 50;
+            aggregate = (matricMarks / 1100) * 10 + (interMarks / 550) * 40 + (testScore / 100) * 50;
             alert(`Your aggregate for FAST is: ${aggregate.toFixed(2)}%`);
         } else if (engChoice === 3) {
             aggregate = (matricMarks / 1100) * 17 + (interMarks / 550) * 50 + (testScore / 400) * 33;
